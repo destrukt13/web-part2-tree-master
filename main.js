@@ -39,7 +39,17 @@ const searchRepeat = arr =>
         return acc;
     }, {})
 
-console.log(searchRepeat(['a','a','b','c']))
+const dayFromStartYear = () => {
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    var diff = now - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    var day = Math.floor(diff / oneDay);
+    return day;
+}
+
+//console.log(dayFromStartYear());
+//console.log(searchRepeat(['a','a','b','c']))
 //console.log(insertionSort([1,4,2,3,5]))
 //console.log(insertToString(3, 'hello', 'hell'))
 //console.log('#' + genRandHex(3))
