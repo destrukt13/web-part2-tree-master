@@ -1,52 +1,37 @@
 'use strict'
 
-const genRandHex = (len) => {
-    const maxlen = 8
-    const min = Math.pow(16, Math.min(len, maxlen) - 1)
-    const max = Math.pow(16, Math.min(len, maxlen)) - 1
-    const n = Math.floor(Math.random() * (max - min + 1)) + min
+const task1 = require('./task1.js');
+const task2 = require('./task2.js');
+const task3 = require('./task3.js');
 
-    let r = n.toString(16)
+const task4 = require('./task4.js');
 
-    while (r.length < len) {
-        r = r + genRandHex(len - maxlen)
-    }
+const task5 = require('./task5.js');
 
-    return r
-}
+const task6 = require('./task6.js');
 
-const insertToString = (pos, string, stringToIns) => {
-    return string.slice(0, pos) + stringToIns + string.slice(pos, string.length)
-}
+var BST = new task6.BinarySearchTree();
 
-const insertionSort = nums => {
-    for (let i = 1; i < nums.length; i++) {
-        let j = i - 1
-        let tmp = nums[i]
-        while (j >= 0 && nums[j] > tmp) {
-            nums[j + 1] = nums[j]
-            j--
-        }
-        nums[j + 1] = tmp
-    }
+BST.insertNode(8);
+BST.insertNode(3);
+BST.insertNode(10);
+BST.insertNode(1);
+BST.insertNode(6);
+BST.insertNode(14);
+BST.insertNode(4);
+BST.insertNode(7);
+BST.insertNode(13);
 
-    return nums
-}
+BST.preOrderTraversal(BST.root);
 
-const searchRepeat = arr =>
-    arr.reduce((acc,el) => {
-        acc[el] = (acc[el] || 0) + 1;
-        return acc;
-    }, {})
 
-const dayFromStartYear = () => {
-    var now = new Date();
-    var start = new Date(now.getFullYear(), 0, 0);
-    var diff = now - start;
-    var oneDay = 1000 * 60 * 60 * 24;
-    var day = Math.floor(diff / oneDay);
-    return day;
-}
+console.log(task1.genRandHex(6));
+console.log(task2.insertToString('1', 'abcd' , 'abc'));
+console.log(task3.insertionSort([1,9,8,7,6,5,4,3,2]));
+console.log(task4.searchRepeat(['asdasd','asdasd','asd','qwe']));
+console.log(task5.dayFromStartYear());
+
+
 
 //console.log(dayFromStartYear());
 //console.log(searchRepeat(['a','a','b','c']))
