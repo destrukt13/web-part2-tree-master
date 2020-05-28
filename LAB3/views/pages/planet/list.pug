@@ -1,0 +1,24 @@
+extends ../../layout
+
+block content
+  h3 Planets
+
+  a(href='/planet/add' class="btn btn-default") Add
+  
+  table(class="table")
+    thead
+      tr
+        th ID
+        th name
+        th cap
+        th weight
+    tbody
+      each planet in planets
+        tr
+          td #{planet.id}
+          td #{planet.name}
+          td #{planet.cap}
+          td #{planet.weight}
+          td
+            a(href=`/location/edit/${planet.id}` class="btn btn-default") Edit
+            a(href=`/location/remove/${planet.id}` class="btn btn-default") Delete
